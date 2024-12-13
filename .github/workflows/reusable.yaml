@@ -7,6 +7,9 @@ on:
         required: false
         default: dist
         type: string
+    secrets:
+      some-secret:
+        required: false
 
 jobs:
   deploy:
@@ -16,6 +19,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{inputs.artifacts-name}}
+      - name: Get Secrets
+        run: ${{secrets.some-secret}}
+
       - name: List Files
         run: ls
       - name: Output-Infotmation

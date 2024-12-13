@@ -71,6 +71,8 @@ jobs:
     uses: ./.github/workflows/reusable.yaml
     with:
       artifacts-name: dist-files
+    secrets:
+      some-secret: ${{github.USER_NAME}}
 
   report:
     needs: [lint, deploy]
