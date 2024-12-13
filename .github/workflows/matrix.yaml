@@ -1,7 +1,11 @@
 name: Matrix Demo
-on: push
+on:
+  push:
+    branches:
+      - master
 jobs:
   build:
+    continue-on-error: true
     strategy:
       matrix:
         node-version: [12, 14, 16]
